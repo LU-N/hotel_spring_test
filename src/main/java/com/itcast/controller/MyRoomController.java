@@ -5,6 +5,7 @@ import com.itcast.service.MyRoomService;
 import com.itcast.util.UploadUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -30,5 +31,11 @@ public class MyRoomController {
         myRoomService.add(room);
         //重定向
         return "redirect:/room/findById.do";
+    }
+    @RequestMapping("/room/findById.do")
+    public String findById(int id, Model model) {
+        MyRoom myRoom = myRoomService.findById(id);
+        model.addAttribute("myRoom", myRoom);
+        return "update";
     }
 }
