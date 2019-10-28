@@ -1,0 +1,9 @@
+DROP TABLE IF EXISTS myroom;
+
+CREATE TABLE myroom (
+  id INT PRIMARY KEY AUTO_INCREMENT COMMENT '房间编号',
+  NAME VARCHAR(20) COMMENT '房间名称',
+  image VARCHAR(64) COMMENT '房间图片名称'
+);
+
+SELECT * FROM myroom;

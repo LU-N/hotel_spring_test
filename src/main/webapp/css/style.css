@@ -1,0 +1,36 @@
+.container {
+    width: 620px;
+    margin: 0 auto;
+    padding: 10px 20px;
+    border: black solid 1px;
+    font-size: 14px;
+}
+
+.container .left {
+    width: 300px;
+    float: left;
+}
+
+.container .right {
+    width: 320px;
+    float: left;
+}
+
+.clear {
+    clear: both;
+}
+
+.container .bottom {
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.container .right img {
+    width: 100%;
+    border: black solid 1px;
+}
+
+.container .left img {
+    width: 145px;
+    border: black solid 1px;
+}
