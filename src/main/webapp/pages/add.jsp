@@ -23,6 +23,16 @@
 </div>
 <script>
     function preview() {
+        var reader = new FileReader();
+        reader.onload = function () {
+            //处理结果
+            document.getElementById("image").src = this.result;
+        };
+
+        //获取文件
+        var file = document.getElementById("file").files[0];
+        //读取文件内容
+        reader.readAsDataURL(file);
     }
 </script>
 </body>
