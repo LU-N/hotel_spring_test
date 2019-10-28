@@ -29,14 +29,14 @@ public class MyRoomDaoImpl implements MyRoomDao {
 
     @Override
     public void update(MyRoom myRoom) {
-        String sql = "update myroom set name = ? image = ? where id = ? ";
+        String sql = "update myroom set name=?, image=? where id=?";
         template.update(sql, myRoom.getName(), myRoom.getImage(), myRoom.getId());
     }
 
     @Override
     public MyRoom findById(int id) {
         try {
-            String sql = "select * from myroom where id = ?";
+            String sql = "select * from myroom where id=?";
             MyRoom myRoom = template.queryForObject(sql, new BeanPropertyRowMapper<>(MyRoom.class), id);
             return myRoom;
         } catch (EmptyResultDataAccessException e) {
