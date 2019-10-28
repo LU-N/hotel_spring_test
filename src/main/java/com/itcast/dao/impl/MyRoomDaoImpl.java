@@ -19,10 +19,12 @@ public class MyRoomDaoImpl implements MyRoomDao {
 
     @Override
     public void add(MyRoom myRoom) {
-        String sql = "insert into myroom values(null, ? ,?)";
+        String sql = "insert into myroom values(null, ? , ?)";
         template.update(sql, myRoom.getName(), myRoom.getImage());
-        String idsql = "select last_inster_id()";
-        template.queryForObject(idsql, Integer.class);
+
+        String idSql = "select last_insert_id()";
+        Integer id = template.queryForObject(idSql, Integer.class);
+        myRoom.setId(id);
     }
 
     @Override

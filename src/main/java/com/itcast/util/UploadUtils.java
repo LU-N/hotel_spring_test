@@ -145,6 +145,8 @@ public final class UploadUtils {
         if (!dirfile.exists()) {
             dirfile.mkdirs();
         }
+        String dist;
+        String imageurl;
         String src = dir + UUID.randomUUID().toString();
         try (FileOutputStream os = new FileOutputStream(src)) {
             // 获得签名算法对象
@@ -171,14 +173,8 @@ public final class UploadUtils {
                 // 创建多级文件夹
                 subdirfile.mkdirs();
             }
-            String dist = dir + subdir + filename + ext;
-            String imageurl = subdir + filename + ext;
-            try {
-                Files.move(new File(src).toPath(), new File(dist).toPath(), StandardCopyOption.REPLACE_EXISTING);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-            return imageurl;
+            dist = dir + subdir + filename + ext;
+            imageurl = subdir + filename + ext;
         } catch (Exception e) {
             throw new RuntimeException(e);
         } finally {
@@ -189,6 +185,13 @@ public final class UploadUtils {
                 }
             }
         }
+
+        try {
+            Files.move(new File(src).toPath(), new File(dist).toPath(), StandardCopyOption.REPLACE_EXISTING);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return imageurl;
     }
 
     private static char[] toHex(final byte[] data) {

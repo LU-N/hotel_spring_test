@@ -7,7 +7,7 @@
 </head>
 <body>
 <div class="container">
-    <form action="/room/add" method="post" enctype="multipart/form-data">
+    <form action="/room/add.do" method="post" enctype="multipart/form-data">
         <div class="left">
             <p>房间名称:&nbsp;&nbsp;<input type="text" name="name"></p>
             <p>房间图片:&nbsp;&nbsp;<input type="file" name="file" id="file" onchange="preview()"></p>
@@ -19,7 +19,7 @@
         <div class="bottom">
             <p><input type="submit" value="添加房间"></p>
         </div>
-</form>
+    </form>
 </div>
 <script>
     function preview() {
